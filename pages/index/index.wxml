@@ -1,0 +1,142 @@
+<view class="resume-page">
+  <view class="hero">
+    <view class="hero-top">
+      <image class="profile-photo" src="{{profile.photo}}" mode="aspectFill"></image>
+    </view>
+    <view class="hero-name">{{profile.name}}</view>
+    <view class="hero-role">{{profile.role}}</view>
+    <view class="hero-summary">{{profile.summary}}</view>
+    <view class="hero-tags">
+      <view class="tag" wx:for="{{profile.tags}}" wx:key="name" bindtap="goProfileTag" data-url="{{item.url}}">{{item.name}}</view>
+    </view>
+  </view>
+
+  <view class="info-panel">
+    <view class="contact-actions">
+      <view class="contact-action phone-action" bindtap="callPhone">
+        <view class="action-value">拨打电话</view>
+      </view>
+      <view class="contact-action wechat-action" bindtap="addWechatFriend">
+        <view class="action-value">微信添加好友</view>
+      </view>
+    </view>
+
+    <view class="info-group">
+      <view class="info-group-title">个人信息</view>
+      <view class="info-grid">
+        <view class="info-item" wx:for="{{personalInfo}}" wx:key="label">
+          <view class="info-label">{{item.label}}</view>
+          <view class="info-value">{{item.value}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="info-group work-group">
+      <view class="info-group-title">服务经验</view>
+      <view class="info-grid work-grid">
+        <view class="info-item" wx:for="{{workInfo}}" wx:key="label">
+          <view class="info-label">{{item.label}}</view>
+          <view class="info-value">{{item.value}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-head">
+      <view>
+        <view class="section-kicker">Projects</view>
+        <view class="section-title">服务内容</view>
+      </view>
+    </view>
+    <view class="project-list">
+      <view class="project-card" wx:for="{{projects}}" wx:key="name" bindtap="goService" data-url="{{item.url}}">
+        <view class="project-body">
+          <view class="project-head">
+            <view class="project-index">0{{index + 1}}</view>
+            <view class="project-title">{{item.name}}</view>
+            <view class="project-type">{{item.type}}</view>
+          </view>
+          <view class="project-desc">{{item.desc}}</view>
+          <view class="project-tags">
+            <view class="project-tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</view>
+          </view>
+          <view class="project-link">查看详情</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-head">
+      <view>
+        <view class="section-kicker">Certificates</view>
+        <view class="section-title">证书资质</view>
+      </view>
+    </view>
+    <view class="certificate-list">
+      <view class="certificate-card" wx:for="{{certificates}}" wx:key="title" bindtap="openCertificate" data-index="{{index}}">
+        <view class="certificate-main">
+          <view class="certificate-title">{{item.title}}</view>
+          <view class="certificate-meta">{{item.highlights[0].label}}：{{item.highlights[0].value}}</view>
+          <view class="certificate-meta">{{item.highlights[1].label}}：{{item.highlights[1].value}}</view>
+        </view>
+        <view class="certificate-more">查看证书</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-head">
+      <view>
+        <view class="section-kicker">Reviews</view>
+        <view class="section-title">客户评价</view>
+      </view>
+    </view>
+    <view class="review-list">
+      <view class="review-card" wx:for="{{reviews}}" wx:key="title" bindtap="openReview" data-index="{{index}}">
+        <view class="review-main">
+          <view class="review-title">{{item.title}}</view>
+          <view class="review-desc">{{item.desc}}</view>
+        </view>
+        <view class="review-more">查看评价</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="certificate-mask" wx:if="{{currentCertificate}}" catchtap="closeCertificate">
+    <view class="certificate-sheet" catchtap="noop">
+      <view class="certificate-close" bindtap="closeCertificate">×</view>
+      <view class="certificate-modal-title">{{currentCertificate.title}}</view>
+      <image class="certificate-image" src="{{currentCertificate.image}}" mode="widthFix"></image>
+      <view class="certificate-detail-list">
+        <view class="certificate-detail-item" wx:for="{{currentCertificate.highlights}}" wx:key="label">
+          <view class="certificate-detail-label">{{item.label}}</view>
+          <view class="certificate-detail-value">{{item.value}}</view>
+        </view>
+        <view class="certificate-detail-item">
+          <view class="certificate-detail-label">发证单位</view>
+          <view class="certificate-detail-value">{{currentCertificate.issuer}}</view>
+        </view>
+        <view class="certificate-detail-item">
+          <view class="certificate-detail-label">发证日期</view>
+          <view class="certificate-detail-value">{{currentCertificate.issueDate}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="certificate-mask" wx:if="{{currentReview}}" catchtap="closeReview">
+    <view class="certificate-sheet" catchtap="noop">
+      <view class="certificate-close" bindtap="closeReview">×</view>
+      <view class="certificate-modal-title">{{currentReview.title}}</view>
+      <image class="certificate-image" src="{{currentReview.image}}" mode="widthFix"></image>
+      <view class="certificate-detail-list">
+        <view class="certificate-detail-item">
+          <view class="certificate-detail-label">客户反馈</view>
+          <view class="certificate-detail-value">{{currentReview.desc}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

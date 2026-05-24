@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#10243f">
+    <meta name="description" content="陈立玲个人介绍，展示母婴护理经历、证书资质、月子餐记录、客户评价和联系方式。">
+    <title>陈立玲个人介绍</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="home" class="page is-active" aria-labelledby="home-title">
+        <article class="hero">
+          <img class="hero-photo" src="./assets/profile/chen-liling.jpg" alt="陈立玲本人照片">
+          <div class="hero-copy">
+            <p class="eyebrow">个人介绍</p>
+            <h1 id="home-title">陈立玲</h1>
+            <p class="role">专业月嫂 / 新生儿护理师</p>
+            <p class="summary">月嫂不是保姆，核心工作是对产后妈妈和新生儿进行专业护理。陈立玲专注宝宝健康成长、妈妈身体恢复和家庭育儿指导，让宝妈安心调养，家人少些慌乱。</p>
+            <div class="hero-tags">
+              <button type="button" data-tab="baby">新生儿护理</button>
+              <button type="button" data-tab="pregnant">产妇恢复</button>
+              <button type="button" data-tab="meals">科学月子餐</button>
+            </div>
+          </div>
+        </article>
+
+        <section class="quick-panel" aria-label="快捷联系与个人信息">
+          <div class="contact-row">
+            <button class="action action-phone" type="button" data-call>拨打电话</button>
+            <button class="action action-wechat" type="button" data-copy-wechat>微信添加好友</button>
+          </div>
+          <div class="info-section">
+            <h2>个人信息</h2>
+            <div class="info-grid" id="personalInfo"></div>
+          </div>
+          <div class="info-section">
+            <h2>工作相关</h2>
+            <div class="info-grid compact" id="workInfo"></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p>Projects</p>
+            <h2>服务内容</h2>
+          </div>
+          <div class="service-list" id="homeServices"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p>Certificates</p>
+            <h2>证书资质</h2>
+          </div>
+          <div class="simple-list" id="certificateList"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p>Reviews</p>
+            <h2>客户评价</h2>
+          </div>
+          <div class="simple-list" id="reviewList"></div>
+        </section>
+      </section>
+
+      <section id="baby" class="page" aria-labelledby="baby-title">
+        <div class="page-title">
+          <p>Baby Care</p>
+          <h1 id="baby-title">宝宝护理</h1>
+          <span>新生儿护理通过生活护理、疾病观察、健康护理、感知训练和情感安抚，呵护宝宝健康成长。</span>
+        </div>
+        <div class="care-list" id="babySections"></div>
+      </section>
+
+      <section id="pregnant" class="page" aria-labelledby="pregnant-title">
+        <div class="page-title">
+          <p>Mother Care</p>
+          <h1 id="pregnant-title">产后妈妈护理</h1>
+          <span>围绕起居、乳房、健康、饮食、恢复操、舒缓按摩和心理支持，帮助妈妈更稳地恢复身体状态。</span>
+        </div>
+        <div class="care-list" id="pregnantSections"></div>
+      </section>
+
+      <section id="meals" class="page" aria-labelledby="meals-title">
+        <div class="page-title meal-title">
+          <p>Meal Plan</p>
+          <h1 id="meals-title">月子餐</h1>
+          <span>按主食材分类展示菜谱，功效说明用于帮助理解搭配方向，实际饮食可按家庭口味和身体恢复情况调整。</span>
+        </div>
+        <div class="meal-layout">
+          <aside class="meal-tabs" id="mealTabs" aria-label="月子餐分类"></aside>
+          <section class="meal-content" id="mealContent" tabindex="0"></section>
+        </div>
+      </section>
+
+      <section id="contact" class="page" aria-labelledby="contact-title">
+        <div class="page-title">
+          <p>Contact</p>
+          <h1 id="contact-title">联系陈立玲</h1>
+          <span>这里是陈立玲的个人介绍与过往展示，可通过微信或电话进一步了解本人经历。</span>
+        </div>
+        <section class="contact-card">
+          <h2>快捷联系</h2>
+          <div class="contact-buttons">
+            <button class="contact-button wechat" type="button" data-copy-wechat>
+              <span>微信</span>
+              <strong>微信添加好友</strong>
+            </button>
+            <button class="contact-button phone" type="button" data-call>
+              <span>电话</span>
+              <strong>拨打电话</strong>
+            </button>
+            <button class="contact-button share" type="button" data-share>
+              <span>分享</span>
+              <strong>分享页面</strong>
+            </button>
+          </div>
+          <p class="hint">添加微信时可备注：个人介绍。</p>
+        </section>
+        <section class="info-section contact-info">
+          <h2>个人信息</h2>
+          <div class="info-grid" id="contactPersonalInfo"></div>
+        </section>
+        <section class="info-section contact-info">
+          <h2>工作相关</h2>
+          <div class="info-grid compact" id="contactWorkInfo"></div>
+        </section>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="页面导航">
+      <button class="nav-item is-active" type="button" data-tab="home"><span>⌂</span>首页</button>
+      <button class="nav-item" type="button" data-tab="baby"><span>□</span>宝宝</button>
+      <button class="nav-item" type="button" data-tab="pregnant"><span>◇</span>孕妇</button>
+      <button class="nav-item" type="button" data-tab="meals"><span>☰</span>月子餐</button>
+      <button class="nav-item" type="button" data-tab="contact"><span>○</span>联系</button>
+    </nav>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <article class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" type="button" aria-label="关闭" data-close-modal>×</button>
+        <div id="modalBody"></div>
+      </article>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

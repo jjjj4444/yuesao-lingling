@@ -1,0 +1,31 @@
+<view class="tab-page">
+  <view class="page-hero">
+    <view class="page-kicker">Contact</view>
+    <view class="page-title">{{title}}</view>
+    <view class="page-subtitle">{{subtitle}}</view>
+  </view>
+
+  <view class="content-card">
+    <view class="content-title">快捷联系</view>
+
+    <view class="contact-panel">
+      <view class="contact-actions">
+        <view class="contact-action wechat-action" bindtap="addWechatFriend">
+          <view class="action-label">微信</view>
+          <view class="action-value">微信添加好友</view>
+        </view>
+        <view class="contact-action phone-action" bindtap="callPhone">
+          <view class="action-label">电话</view>
+          <view class="action-value">拨打电话</view>
+        </view>
+        <button class="contact-action share-action" open-type="share">
+          <view class="action-label">分享</view>
+          <view class="action-value">分享小程序</view>
+        </button>
+      </view>
+    </view>
+
+    <view class="hint-text">添加微信时可备注：个人介绍。</view>
+  </view>
+
+</view>

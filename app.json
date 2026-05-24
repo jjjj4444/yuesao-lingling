@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/baby/index",
+    "pages/pregnant/index",
+    "pages/confinement/index",
+    "pages/contact/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eef2f3",
+    "navigationBarTitleText": "陈立玲月嫂",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7a8694",
+    "selectedColor": "#1f6f78",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/nav/tab-home-off.png",
+        "selectedIconPath": "images/nav/tab-home-on.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/baby/index",
+        "iconPath": "images/nav/tab-baby-off.png",
+        "selectedIconPath": "images/nav/tab-baby-on.png",
+        "text": "宝宝"
+      },
+      {
+        "pagePath": "pages/pregnant/index",
+        "iconPath": "images/nav/tab-pregnant-off.png",
+        "selectedIconPath": "images/nav/tab-pregnant-on.png",
+        "text": "孕妇"
+      },
+      {
+        "pagePath": "pages/confinement/index",
+        "iconPath": "images/nav/tab-meal-off.png",
+        "selectedIconPath": "images/nav/tab-meal-on.png",
+        "text": "月子餐"
+      },
+      {
+        "pagePath": "pages/contact/index",
+        "iconPath": "images/nav/tab-contact-off.png",
+        "selectedIconPath": "images/nav/tab-contact-on.png",
+        "text": "联系"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

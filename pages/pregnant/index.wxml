@@ -1,0 +1,28 @@
+<view class="tab-page">
+  <view class="page-hero">
+    <view class="page-kicker">Pregnancy</view>
+    <view class="page-title">{{title}}</view>
+    <view class="page-subtitle">{{subtitle}}</view>
+  </view>
+  <view class="content-card">
+    <view class="content-title">服务重点</view>
+    <view class="content-item tappable" wx:for="{{sections}}" wx:key="title" bindtap="openKnowledge" data-index="{{index}}">
+      <view class="item-title">{{item.title}}</view>
+      <view class="item-desc">{{item.desc}}</view>
+      <view class="item-more">更多</view>
+    </view>
+  </view>
+
+  <view class="knowledge-mask" wx:if="{{currentKnowledge}}" catchtap="closeKnowledge">
+    <view class="knowledge-sheet" catchtap="noop">
+      <view class="knowledge-close-icon" bindtap="closeKnowledge">×</view>
+      <view class="knowledge-title">{{currentKnowledge.title}}</view>
+      <view class="knowledge-section" wx:for="{{currentKnowledge.detail}}" wx:key="label">
+        <view class="knowledge-badge {{item.tone}}">{{item.label}}</view>
+        <view class="knowledge-list">
+          <view class="knowledge-list-item" wx:for="{{item.items}}" wx:for-item="point" wx:key="*this">{{point}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

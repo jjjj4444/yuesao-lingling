@@ -1,0 +1,18 @@
+{
+  "name": "yuesao-service-miniapp",
+  "version": "1.0.0",
+  "description": "陈立玲月嫂服务微信小程序",
+  "main": "app.js",
+  "dependencies": {},
+  "scripts": {
+    "check": "node --check app.js && node --check pages/index/index.js && node --check pages/baby/index.js && node --check pages/pregnant/index.js && node --check pages/confinement/index.js && node --check pages/contact/index.js && node --check website/app.js",
+    "deploy:cloudflare": "CLOUDFLARE_ACCOUNT_ID=a2b22827e32358f2aab496233d795381 npx wrangler pages deploy website --project-name yuesao-lingling"
+  },
+  "keywords": [
+    "微信小程序",
+    "月嫂",
+    "母婴护理"
+  ],
+  "author": "",
+  "license": "UNLICENSED"
+}

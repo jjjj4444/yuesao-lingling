@@ -1,0 +1,57 @@
+<view class="meal-page">
+  <view class="meal-header">
+    <view>
+      <view class="meal-kicker">Postpartum Menu</view>
+      <view class="meal-title">月子餐</view>
+      <view class="meal-subtitle">根据产后恢复阶段准备营养膳食，清淡易消化，帮助妈妈补充体力、调理身体。</view>
+    </view>
+    <view class="meal-count">{{currentCategory.dishes.length}} 道</view>
+  </view>
+
+  <view class="order-layout">
+    <scroll-view class="category-sidebar" scroll-y enhanced show-scrollbar="{{false}}">
+      <view
+        class="category-item {{activeCategory == index ? 'active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="name"
+        bindtap="switchCategory"
+        data-index="{{index}}"
+      >
+        <view class="category-name">{{item.name}}</view>
+      </view>
+    </scroll-view>
+
+    <scroll-view class="dish-panel" scroll-y scroll-top="{{dishScrollTop}}" enhanced show-scrollbar="{{false}}">
+      <view class="dish-section-title">{{currentCategory.name}}</view>
+      <view class="dish-section-note">{{currentCategory.note}}</view>
+
+      <view class="dish-card" wx:for="{{currentCategory.dishes}}" wx:key="name">
+        <view class="dish-image">
+          <image class="dish-photo" src="{{item.image}}" mode="aspectFill"></image>
+        </view>
+        <view class="dish-info">
+          <view class="dish-top">
+            <view class="dish-name">{{item.name}}</view>
+          </view>
+          <view class="dish-effect">
+            <view class="effect-label">功效</view>
+            <view class="effect-text">{{item.effect}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="meal-knowledge-card">
+        更多月子餐细节：
+        <view class="meal-knowledge-link" wx:for="{{knowledgeList}}" wx:key="title" bindtap="openKnowledge" data-index="{{index}}">{{item.title}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="meal-knowledge-mask" wx:if="{{currentKnowledge}}" catchtap="closeKnowledge">
+    <view class="meal-knowledge-sheet" catchtap="noop">
+      <view class="meal-knowledge-title">{{currentKnowledge.title}}</view>
+      <view class="meal-knowledge-body">{{currentKnowledge.body}}</view>
+      <button class="meal-knowledge-close" bindtap="closeKnowledge">知道了</button>
+    </view>
+  </view>
+</view>

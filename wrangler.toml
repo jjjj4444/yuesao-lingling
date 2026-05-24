@@ -1,2 +1,5 @@
 name = "yuesao-lingling"
-pages_build_output_dir = "website"
+compatibility_date = "2026-05-24"
+
+[assets]
+directory = "./website"

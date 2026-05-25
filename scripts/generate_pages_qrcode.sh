@@ -8,7 +8,7 @@ URL="${1:-https://yuesao-lingling.pages.dev/}"
 npx --yes qrcode \
   -o "$ROOT_DIR/website/assets/qrcode/yuesao-lingling-pages-plain.png" \
   -w 1200 \
-  -q 1 \
+  -q 0 \
   -e H \
   "$URL"
 
@@ -16,3 +16,13 @@ npx --yes qrcode \
   "$ROOT_DIR/website/assets/qrcode/yuesao-lingling-pages-plain.png" \
   "$ROOT_DIR/website/assets/qrcode/pages-qrcode-logo.jpg" \
   "$ROOT_DIR/website/assets/qrcode/yuesao-lingling-pages-with-logo.png"
+
+"$PYTHON_BIN" "$ROOT_DIR/scripts/trim_qrcode_margin.py" \
+  "$ROOT_DIR/website/assets/qrcode/yuesao-lingling-pages-plain.png" \
+  "$ROOT_DIR/website/assets/qrcode/yuesao-lingling-pages-plain.png" \
+  8
+
+"$PYTHON_BIN" "$ROOT_DIR/scripts/trim_qrcode_margin.py" \
+  "$ROOT_DIR/website/assets/qrcode/yuesao-lingling-pages-with-logo.png" \
+  "$ROOT_DIR/website/assets/qrcode/yuesao-lingling-pages-with-logo.png" \
+  8

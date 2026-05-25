@@ -171,10 +171,28 @@ function inferEffect(name, category) {
   return `${name}口味温和，可按恢复情况搭配正餐，帮助丰富月子期饮食。`
 }
 
+const mealImages = {
+  '烤蛋挞': './assets/meals/烤蛋挞.jpg',
+  '番茄炒鸡蛋': './assets/meals/番茄炒鸡蛋.jpg',
+  '番茄花菜': './assets/meals/番茄花菜.jpg',
+  '白灼猪腰': './assets/meals/白灼猪腰.jpg',
+  '白米饭': './assets/meals/白米饭.jpg',
+  '糖醋排骨': './assets/meals/糖醋排骨.jpg',
+  '紫米牛奶': './assets/meals/紫米牛奶.jpg',
+  '肉末茄子': './assets/meals/肉末茄子.jpg',
+  '肉末豆角': './assets/meals/肉末豆角.jpg',
+  '芹菜炒牛肉': './assets/meals/芹菜炒牛肉.jpg',
+  '芹菜牛肉': './assets/meals/芹菜牛肉.jpg',
+  '虾仁玉米粒': './assets/meals/虾仁玉米粒.jpg',
+  '酸奶小松饼': './assets/meals/酸奶小松饼.jpg',
+  '青菜蛋汤': './assets/meals/青菜蛋汤.jpg',
+  '黑芝麻饭': './assets/meals/黑芝麻饭.jpg'
+}
+
 function dish(name, tag, category) {
   return {
     name,
-    image: './assets/ui/default.png',
+    image: mealImages[name] || './assets/ui/default.png',
     assetPath: `./assets/meals/${name}.png`,
     tag,
     effect: inferEffect(name, category)

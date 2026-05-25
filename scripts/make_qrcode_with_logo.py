@@ -25,8 +25,9 @@ def main():
     logo = Image.open(logo_path).convert("RGBA")
 
     qr_size = qr.size[0]
-    logo_size = int(qr_size * 0.18)
-    padding = int(qr_size * 0.025)
+    # Keep the center image small: large white logo blocks can make QR scanners fail.
+    logo_size = int(qr_size * 0.14)
+    padding = int(qr_size * 0.008)
     box_size = logo_size + padding * 2
 
     logo.thumbnail((logo_size, logo_size), Image.Resampling.LANCZOS)
@@ -39,7 +40,6 @@ def main():
         logo,
         ((logo_size - logo.width) // 2, (logo_size - logo.height) // 2),
     )
-    logo_mask = rounded_mask((logo_size, logo_size), int(logo_size * 0.16))
     box.alpha_composite(logo_canvas, (padding, padding))
 
     position = ((qr.width - box_size) // 2, (qr.height - box_size) // 2)
@@ -55,7 +55,7 @@ def main():
         ),
         radius=int(box_size * 0.18),
         outline=(255, 255, 255, 255),
-        width=max(4, int(qr_size * 0.012)),
+        width=max(3, int(qr_size * 0.006)),
     )
 
     out_path.parent.mkdir(parents=True, exist_ok=True)

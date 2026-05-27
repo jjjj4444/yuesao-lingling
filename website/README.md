@@ -34,7 +34,7 @@ export CLOUDFLARE_API_TOKEN="你的 Cloudflare Pages API Token"
 然后运行：
 
 ```bash
-npm run deploy:cloudflare
+npm run deploy:pages
 ```
 
 当前 Cloudflare Account ID 已配置在部署脚本中：
@@ -42,6 +42,8 @@ npm run deploy:cloudflare
 ```text
 a2b22827e32358f2aab496233d795381
 ```
+
+说明：部署脚本使用的是 `wrangler pages deploy`，这是 Cloudflare Pages 的命令行部署方式，不是 Workers 部署；仓库里不保留 Workers 配置。
 
 ## 图片替换
 

@@ -13,6 +13,13 @@
     </view>
   </view>
 
+  <view class="content-card daily-card" wx:if="{{dailyPhotos.length}}">
+    <view class="content-title">照护日常</view>
+    <view class="daily-flow">
+      <image class="daily-photo {{item.tall ? 'tall' : ''}}" wx:for="{{dailyPhotos}}" wx:key="src" src="{{item.src}}" mode="aspectFill"></image>
+    </view>
+  </view>
+
   <view class="knowledge-mask" wx:if="{{currentKnowledge}}" catchtap="closeKnowledge">
     <view class="knowledge-sheet" catchtap="noop">
       <view class="knowledge-close-icon" bindtap="closeKnowledge">×</view>

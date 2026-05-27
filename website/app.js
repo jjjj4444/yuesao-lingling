@@ -77,8 +77,7 @@ const babySections = [
 
 const pregnantSections = [
   {
-    title: '照护日常',
-    image: './assets/mother/holding-baby.jpg',
+    title: '生活护理',
     desc: '照顾宝妈起居、休息和抱娃后的日常疲劳，协助衣物清洗、卧房整理，保持室内清洁和空气清新。',
     detail: [
       { label: '我能提供', items: ['照顾日常起居和休息安排', '协助衣物处理、卧房整理', '留意抱娃、哺乳后的疲劳状态'] },
@@ -110,6 +109,8 @@ const pregnantSections = [
     ]
   }
 ]
+
+const babyDailyPhotos = []
 
 const certificates = [
   {
@@ -323,15 +324,36 @@ function renderHomeServices() {
 
 function renderCareList(targetId, sections) {
   document.getElementById(targetId).innerHTML = sections.map((item, index) => `
-    <article class="care-card ${item.image ? 'care-card-with-image' : ''}">
-      ${item.image ? `<img class="care-photo" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy">` : ''}
-      <div class="care-copy">
-        <h2 class="care-title">${escapeHtml(item.title)}</h2>
-        <p class="care-desc">${escapeHtml(item.desc)}</p>
-        <button class="more-button" type="button" data-care="${targetId}" data-index="${index}">更多</button>
-      </div>
+    <article class="care-card">
+      <h2 class="care-title">${escapeHtml(item.title)}</h2>
+      <p class="care-desc">${escapeHtml(item.desc)}</p>
+      <button class="more-button" type="button" data-care="${targetId}" data-index="${index}">更多</button>
     </article>
   `).join('')
+}
+
+function renderBabyDailyPhotos() {
+  const target = document.getElementById('babyDailyGallery')
+  if (!babyDailyPhotos.length) {
+    target.hidden = true
+    target.innerHTML = ''
+    return
+  }
+
+  target.hidden = false
+  target.innerHTML = `
+    <div class="daily-title">
+      <p>Daily Care</p>
+      <h2>照护日常</h2>
+    </div>
+    <div class="daily-photo-flow">
+      ${babyDailyPhotos.map((item) => `
+        <figure class="daily-photo-card ${item.tall ? 'tall' : ''}">
+          <img src="${item.src}" alt="${escapeHtml(item.alt || '照护日常')}" loading="lazy">
+        </figure>
+      `).join('')}
+    </div>
+  `
 }
 
 function renderSimpleList(targetId, items, type) {
@@ -548,6 +570,7 @@ function init() {
   renderInfo('contactWorkInfo', workInfo)
   renderHomeServices()
   renderCareList('babySections', babySections)
+  renderBabyDailyPhotos()
   renderCareList('pregnantSections', pregnantSections)
   renderSimpleList('certificateList', certificates, 'certificate')
   renderSimpleList('reviewList', reviews, 'review')

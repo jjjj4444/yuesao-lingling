@@ -4,8 +4,7 @@ Page({
     subtitle: '围绕日常照护、喂养支持、舒缓按摩和身心恢复，帮助宝妈在月子期更安心地休息和恢复。',
     sections: [
       {
-        title: '照护日常',
-        image: '/assets/mother/holding-baby.jpg',
+        title: '生活护理',
         desc: '照顾宝妈起居、休息和抱娃后的日常疲劳，协助衣物清洗、卧房整理，保持室内清洁和空气清新。',
         detail: [
           { label: '服务', tone: 'green', items: ['照顾日常起居和休息安排', '协助衣物处理、卧房整理', '留意抱娃、哺乳后的疲劳状态'] },

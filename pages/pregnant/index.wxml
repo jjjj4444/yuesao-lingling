@@ -6,13 +6,10 @@
   </view>
   <view class="content-card">
     <view class="content-title">服务重点</view>
-    <view class="content-flow">
-      <view class="content-item tappable" wx:for="{{sections}}" wx:key="title" bindtap="openKnowledge" data-index="{{index}}">
-        <image wx:if="{{item.image}}" class="item-photo" src="{{item.image}}" mode="aspectFill"></image>
-        <view class="item-title">{{item.title}}</view>
-        <view class="item-desc">{{item.desc}}</view>
-        <view class="item-more">更多</view>
-      </view>
+    <view class="content-item tappable" wx:for="{{sections}}" wx:key="title" bindtap="openKnowledge" data-index="{{index}}">
+      <view class="item-title">{{item.title}}</view>
+      <view class="item-desc">{{item.desc}}</view>
+      <view class="item-more">更多</view>
     </view>
   </view>
 

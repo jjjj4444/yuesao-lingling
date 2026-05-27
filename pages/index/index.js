@@ -36,7 +36,7 @@ Page({
       summary: '月嫂不是保姆，核心工作是对产后妈妈和新生儿进行专业护理。陈立玲专注宝宝健康成长、妈妈身体恢复和家庭育儿指导，让宝妈安心调养，家人少些慌乱。',
       tags: [
         { name: '新生儿护理', url: '/pages/baby/index' },
-        { name: '产妇恢复', url: '/pages/pregnant/index' },
+        { name: '宝妈照护', url: '/pages/pregnant/index' },
         { name: '科学月子餐', url: '/pages/confinement/index' }
       ]
     },
@@ -53,7 +53,7 @@ Page({
         url: '/pages/baby/index'
       },
       {
-        name: '产后妈妈护理',
+        name: '宝妈照护',
         type: 'Mother Care',
         desc: '关注妈妈起居、乳房护理、身体恢复、情绪状态和休息节奏；结合过往美容院按摩经验，帮助缓解肩颈、腰背和哺乳带来的疲劳。',
         tags: ['生活照护', '产后恢复', '舒缓按摩'],

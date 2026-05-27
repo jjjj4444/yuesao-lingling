@@ -314,6 +314,28 @@ button {
   background: var(--paper);
 }
 
+#pregnantSections {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.care-card-with-image {
+  display: block;
+}
+
+.care-photo {
+  width: 100%;
+  height: 210px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #eef2f3;
+}
+
+.care-copy {
+  min-width: 0;
+}
+
 .care-card .more-button {
   color: #4c8790;
 }

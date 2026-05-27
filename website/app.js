@@ -18,7 +18,7 @@ const projects = [
     tab: 'baby'
   },
   {
-    name: '产后妈妈护理',
+    name: '宝妈照护',
     type: 'Mother Care',
     desc: '关注妈妈起居、乳房护理、身体恢复、情绪状态和休息节奏；结合过往美容院按摩经验，帮助缓解肩颈、腰背和哺乳带来的疲劳。',
     tags: ['生活照护', '产后恢复', '舒缓按摩'],
@@ -77,34 +77,35 @@ const babySections = [
 
 const pregnantSections = [
   {
-    title: '生活护理',
-    desc: '照顾妈妈起居，协助沐浴、衣物清洗、卧房整理，保持室内清洁和空气清新。',
+    title: '照护日常',
+    image: './assets/mother/holding-baby.jpg',
+    desc: '照顾宝妈起居、休息和抱娃后的日常疲劳，协助衣物清洗、卧房整理，保持室内清洁和空气清新。',
     detail: [
-      { label: '我能提供', items: ['照顾日常起居和休息安排', '协助衣物处理、卧房整理', '保持室内清洁、空气清新'] },
-      { label: '为什么重要', items: ['减少产后琐事消耗', '让妈妈把精力留给休息和哺乳', '舒适环境更利于身体恢复'] }
+      { label: '我能提供', items: ['照顾日常起居和休息安排', '协助衣物处理、卧房整理', '留意抱娃、哺乳后的疲劳状态'] },
+      { label: '为什么重要', items: ['减少产后琐事消耗', '让宝妈把精力留给休息和哺乳', '舒适环境更利于身体恢复'] }
     ]
   },
   {
     title: '乳房护理',
-    desc: '指导正确母乳喂养，协助防止和缓解奶胀，帮助妈妈建立更顺畅的喂养节奏。',
+    desc: '指导正确母乳喂养，协助防止和缓解奶胀，帮助宝妈建立更顺畅的喂养节奏。',
     detail: [
       { label: '我能提供', items: ['指导哺乳姿势和含接方式', '协助观察奶胀、堵奶等不适', '帮助建立更顺畅的喂养节奏'] },
-      { label: '为什么重要', items: ['减少疼痛和哺乳焦虑', '帮助宝宝稳定获得营养', '让妈妈更有信心坚持母乳喂养'] }
+      { label: '为什么重要', items: ['减少疼痛和哺乳焦虑', '帮助宝宝稳定获得营养', '让宝妈更有信心坚持母乳喂养'] }
     ]
   },
   {
     title: '产后舒缓按摩',
-    desc: '曾在美容院工作多年，具备按摩经验，可根据妈妈状态进行温和舒缓。',
+    desc: '曾在美容院工作多年，具备按摩经验，可根据宝妈状态进行温和舒缓。',
     detail: [
-      { label: '我能提供', items: ['根据妈妈身体状态做温和按摩', '重点舒缓肩颈、腰背、手臂等疲劳部位', '力度以舒适放松为主，不做勉强操作'] },
-      { label: '为什么重要', items: ['帮助缓解抱娃、哺乳带来的肩颈腰背疲劳', '促进放松和休息', '让妈妈在月子期获得更细致的照顾'] }
+      { label: '我能提供', items: ['根据宝妈身体状态做温和按摩', '重点舒缓肩颈、腰背、手臂等疲劳部位', '力度以舒适放松为主，不做勉强操作'] },
+      { label: '为什么重要', items: ['帮助缓解抱娃、哺乳带来的肩颈腰背疲劳', '促进放松和休息', '让宝妈在月子期获得更细致的照顾'] }
     ]
   },
   {
     title: '健康与心理支持',
     desc: '关注产褥期常见不适，观察身体恢复和情绪状态，发现异常及时提醒家人处理。',
     detail: [
-      { label: '我能提供', items: ['观察休息、饮食、精神状态', '陪妈妈交流育儿问题', '协助家人理解妈妈的辛苦'] },
+      { label: '我能提供', items: ['观察休息、饮食、精神状态', '陪宝妈交流育儿问题', '协助家人理解宝妈的辛苦'] },
       { label: '为什么重要', items: ['及时观察能减少风险', '缓解睡眠不足和育儿压力带来的焦虑', '让家庭照护氛围更轻松'] }
     ]
   }
@@ -322,10 +323,13 @@ function renderHomeServices() {
 
 function renderCareList(targetId, sections) {
   document.getElementById(targetId).innerHTML = sections.map((item, index) => `
-    <article class="care-card">
-      <h2 class="care-title">${escapeHtml(item.title)}</h2>
-      <p class="care-desc">${escapeHtml(item.desc)}</p>
-      <button class="more-button" type="button" data-care="${targetId}" data-index="${index}">更多</button>
+    <article class="care-card ${item.image ? 'care-card-with-image' : ''}">
+      ${item.image ? `<img class="care-photo" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy">` : ''}
+      <div class="care-copy">
+        <h2 class="care-title">${escapeHtml(item.title)}</h2>
+        <p class="care-desc">${escapeHtml(item.desc)}</p>
+        <button class="more-button" type="button" data-care="${targetId}" data-index="${index}">更多</button>
+      </div>
     </article>
   `).join('')
 }

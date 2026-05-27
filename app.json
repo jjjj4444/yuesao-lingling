@@ -34,7 +34,7 @@
         "pagePath": "pages/pregnant/index",
         "iconPath": "images/nav/tab-pregnant-off.png",
         "selectedIconPath": "images/nav/tab-pregnant-on.png",
-        "text": "孕妇"
+        "text": "宝妈"
       },
       {
         "pagePath": "pages/confinement/index",

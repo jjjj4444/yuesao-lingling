@@ -175,6 +175,7 @@ const mealImages = {
   '烤蛋挞': './assets/meals/烤蛋挞.jpg',
   '番茄炒鸡蛋': './assets/meals/番茄炒鸡蛋.jpg',
   '番茄花菜': './assets/meals/番茄花菜.jpg',
+  '水炒西芹': './assets/meals/水炒西芹.jpg',
   '白灼猪腰': './assets/meals/白灼猪腰.jpg',
   '白米饭': './assets/meals/白米饭.jpg',
   '糖醋排骨': './assets/meals/糖醋排骨.jpg',
@@ -186,6 +187,9 @@ const mealImages = {
   '虾仁玉米粒': './assets/meals/虾仁玉米粒.jpg',
   '酸奶小松饼': './assets/meals/酸奶小松饼.jpg',
   '青菜蛋汤': './assets/meals/青菜蛋汤.jpg',
+  '玉米渣饭': './assets/meals/玉米渣饭.jpg',
+  '自制上汤娃娃菜': './assets/meals/自制上汤娃娃菜.jpg',
+  '鸡汤': './assets/meals/鸡汤.jpg',
   '黑芝麻饭': './assets/meals/黑芝麻饭.jpg'
 }
 

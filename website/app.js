@@ -110,7 +110,22 @@ const pregnantSections = [
   }
 ]
 
-const babyDailyPhotos = []
+const babyDailyPhotos = [
+  { src: './assets/baby-care/daily-01.jpg', tall: true, alt: '照护日常照片 1' },
+  { src: './assets/baby-care/daily-02.jpg', alt: '照护日常照片 2' },
+  { src: './assets/baby-care/daily-03.jpg', alt: '照护日常照片 3' },
+  { src: './assets/baby-care/daily-04.jpg', tall: true, alt: '照护日常照片 4' },
+  { src: './assets/baby-care/daily-05.jpg', tall: true, alt: '照护日常照片 5' },
+  { src: './assets/baby-care/daily-06.jpg', alt: '照护日常照片 6' },
+  { src: './assets/baby-care/daily-07.jpg', alt: '照护日常照片 7' },
+  { src: './assets/baby-care/daily-08.jpg', tall: true, alt: '照护日常照片 8' },
+  { src: './assets/baby-care/daily-09.jpg', tall: true, alt: '照护日常照片 9' },
+  { src: './assets/baby-care/daily-10.jpg', alt: '照护日常照片 10' },
+  { src: './assets/baby-care/daily-11.jpg', alt: '照护日常照片 11' },
+  { src: './assets/baby-care/daily-12.jpg', tall: true, alt: '照护日常照片 12' },
+  { src: './assets/baby-care/daily-13.jpg', alt: '照护日常照片 13' },
+  { src: './assets/baby-care/daily-14.jpg', tall: true, alt: '照护日常照片 14' }
+]
 
 const certificates = [
   {

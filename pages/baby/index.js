@@ -36,7 +36,22 @@ Page({
         ]
       }
     ],
-    dailyPhotos: [],
+    dailyPhotos: [
+      { src: '/assets/baby-care/daily-01.jpg', tall: true },
+      { src: '/assets/baby-care/daily-02.jpg' },
+      { src: '/assets/baby-care/daily-03.jpg' },
+      { src: '/assets/baby-care/daily-04.jpg', tall: true },
+      { src: '/assets/baby-care/daily-05.jpg', tall: true },
+      { src: '/assets/baby-care/daily-06.jpg' },
+      { src: '/assets/baby-care/daily-07.jpg' },
+      { src: '/assets/baby-care/daily-08.jpg', tall: true },
+      { src: '/assets/baby-care/daily-09.jpg', tall: true },
+      { src: '/assets/baby-care/daily-10.jpg' },
+      { src: '/assets/baby-care/daily-11.jpg' },
+      { src: '/assets/baby-care/daily-12.jpg', tall: true },
+      { src: '/assets/baby-care/daily-13.jpg' },
+      { src: '/assets/baby-care/daily-14.jpg', tall: true }
+    ],
     currentKnowledge: null
   },
 

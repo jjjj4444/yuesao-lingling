@@ -3,7 +3,8 @@ Page({
     title: '联系陈立玲',
     subtitle: '这里是陈立玲的个人介绍与过往展示，可通过微信或电话进一步了解本人经历。',
     phone: '13581206661',
-    wechat: '13581206661'
+    wechat: '13581206661',
+    xiaohongshu: 'https://www.xiaohongshu.com/user/profile/62f504e4000000001e01f530'
   },
 
   copyWechat() {
@@ -38,6 +39,19 @@ Page({
   callPhone() {
     wx.makePhoneCall({
       phoneNumber: this.data.phone
+    })
+  },
+
+  openXiaohongshu() {
+    wx.setClipboardData({
+      data: this.data.xiaohongshu,
+      success() {
+        wx.showModal({
+          title: '小红书主页已复制',
+          content: '请打开小红书或浏览器，粘贴链接查看个人主页。',
+          showCancel: false
+        })
+      }
     })
   },
 

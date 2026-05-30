@@ -22,6 +22,10 @@
           <view class="action-label">分享</view>
           <view class="action-value">分享小程序</view>
         </button>
+        <view class="contact-action xhs-action" bindtap="openXiaohongshu">
+          <view class="action-label">小红书</view>
+          <view class="action-value">小红书主页</view>
+        </view>
       </view>
     </view>
 

@@ -1,5 +1,6 @@
 const phone = '13581206661'
 const wechat = '13581206661'
+const xiaohongshuUrl = 'https://www.xiaohongshu.com/user/profile/62f504e4000000001e01f530'
 const birthYear = 1983
 const careerStartYear = 2018
 
@@ -558,6 +559,11 @@ function bindEvents() {
 
     if (event.target.closest('[data-share]')) {
       sharePage()
+      return
+    }
+
+    if (event.target.closest('[data-xiaohongshu]')) {
+      window.open(xiaohongshuUrl, '_blank', 'noopener,noreferrer')
       return
     }
 

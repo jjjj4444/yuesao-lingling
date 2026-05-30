@@ -1,14 +1,17 @@
 :root {
-  --ink: #13213a;
-  --muted: #657588;
-  --line: #e5ebef;
-  --soft: #f4f8f8;
-  --teal: #187980;
-  --teal-dark: #123f52;
+  --ink: #17243a;
+  --muted: #6f7f8f;
+  --line: #e3e9ec;
+  --soft: #f5f8f7;
+  --teal: #286f73;
+  --teal-dark: #173f4a;
   --green: #07c160;
-  --gold: #f3c65a;
+  --gold: #d7b56d;
   --paper: #ffffff;
-  --shadow: 0 14px 36px rgba(19, 33, 58, .1);
+  --wash: #edf4f3;
+  --shadow: 0 16px 44px rgba(23, 36, 58, .08);
+  --radius: 14px;
+  --radius-sm: 10px;
   color-scheme: light;
 }
 
@@ -25,7 +28,9 @@ body {
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   color: var(--ink);
-  background: #eaf1f3;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(215, 181, 109, .16), transparent 28%),
+    linear-gradient(180deg, #eef5f4 0%, #f6f8f7 42%, #edf4f3 100%);
 }
 
 button {
@@ -36,7 +41,7 @@ button {
   width: min(100%, 860px);
   min-height: 100vh;
   margin: 0 auto;
-  padding: 14px 14px calc(88px + env(safe-area-inset-bottom));
+  padding: 16px 14px calc(92px + env(safe-area-inset-bottom));
 }
 
 .page {
@@ -53,9 +58,10 @@ button {
   gap: 18px;
   align-items: center;
   padding: 24px 20px;
-  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.44);
+  border-radius: var(--radius);
   color: #fff;
-  background: linear-gradient(135deg, #112a48 0%, #187980 58%, #f3c65a 128%);
+  background: linear-gradient(135deg, #17324d 0%, #286f73 62%, #d7b56d 132%);
   box-shadow: var(--shadow);
 }
 
@@ -121,11 +127,12 @@ button {
 .section,
 .contact-card,
 .info-section.contact-info {
-  margin-top: 12px;
+  margin-top: 14px;
   padding: 16px;
-  border-radius: 12px;
+  border: 1px solid rgba(23, 36, 58, .06);
+  border-radius: var(--radius);
   background: var(--paper);
-  box-shadow: 0 1px 0 rgba(19, 33, 58, .04);
+  box-shadow: 0 1px 0 rgba(23, 36, 58, .04);
 }
 
 .contact-row,
@@ -139,7 +146,7 @@ button {
 .contact-button {
   min-height: 52px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   color: #fff;
   font-weight: 800;
 }
@@ -168,7 +175,7 @@ button {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
 }
 
@@ -176,7 +183,7 @@ button {
   padding: 13px 14px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: #fbfcfd;
+  background: #fbfcfc;
 }
 
 .info-item:nth-child(2n) {
@@ -211,51 +218,38 @@ button {
 .section-head h2,
 .page-title h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 27px;
   line-height: 1.15;
 }
 
 .service-list,
 .care-list,
-.simple-list {
+.media-list {
   display: grid;
   gap: 10px;
 }
 
 .service-card,
 .care-card,
-.simple-card {
+.media-card {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   padding: 16px;
-  background: #fbfcfd;
+  background: #fbfcfc;
 }
 
 .service-head {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   gap: 10px;
   align-items: center;
 }
 
-.service-index {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--teal);
-  font-size: 14px;
-  font-weight: 900;
-}
-
 .service-title,
 .care-title,
-.simple-title,
 .dish-name {
   margin: 0;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 900;
 }
 
@@ -287,8 +281,7 @@ button {
   background: #e8f4f3;
 }
 
-.more-button,
-.simple-more {
+.more-button {
   margin-top: 12px;
   padding: 0;
   border: 0;
@@ -296,6 +289,11 @@ button {
   background: transparent;
   font-size: 14px;
   font-weight: 800;
+}
+
+.more-button::after,
+.media-action::after {
+  content: " →";
 }
 
 .page-title {
@@ -321,7 +319,7 @@ button {
 .daily-gallery {
   margin-top: 16px;
   padding: 18px;
-  border-radius: 10px;
+  border-radius: var(--radius);
   background: var(--paper);
   border: 1px solid var(--line);
 }
@@ -358,25 +356,61 @@ button {
 .daily-photo-card img {
   display: block;
   width: 100%;
-  height: 210px;
+  height: 176px;
   object-fit: cover;
 }
 
 .daily-photo-card.tall img {
-  height: 270px;
+  height: 224px;
 }
 
-.simple-card {
+.media-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.media-card {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 92px 1fr;
   gap: 12px;
   align-items: center;
-  background: var(--paper);
 }
 
-.simple-more {
-  margin-top: 0;
-  white-space: nowrap;
+.media-card img {
+  width: 92px;
+  height: 92px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #eef3f4;
+}
+
+.media-card h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.media-card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.media-eyebrow {
+  color: var(--teal) !important;
+  font-size: 11px !important;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.media-action {
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  color: var(--teal);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .meal-layout {
@@ -588,6 +622,18 @@ button {
   line-height: 1;
 }
 
+.modal-primary {
+  margin-top: 16px;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--teal);
+  font-size: 14px;
+  font-weight: 900;
+}
+
 .modal-content {
   padding: 24px 20px 20px;
 }
@@ -597,13 +643,49 @@ button {
   font-size: 24px;
 }
 
-.modal-image {
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.modal-gallery-item {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbfcfc;
+}
+
+.modal-gallery-item img {
   display: block;
   width: 100%;
-  max-height: 62vh;
+  height: 180px;
+  object-fit: cover;
+  background: #eef3f4;
+}
+
+.modal-gallery.is-document .modal-gallery-item img {
+  height: 220px;
   object-fit: contain;
-  border-radius: 10px;
-  background: #f7f8f9;
+  background: #f7f8f7;
+}
+
+.modal-gallery-item figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+}
+
+.modal-gallery-item strong {
+  font-size: 14px;
+}
+
+.modal-gallery-item span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
 }
 
 .detail-group {
@@ -705,6 +787,20 @@ button {
 
   .contact-buttons {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .media-list,
+  .modal-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .media-card {
+    grid-template-columns: 84px 1fr;
+  }
+
+  .media-card img {
+    width: 84px;
+    height: 84px;
   }
 }
 

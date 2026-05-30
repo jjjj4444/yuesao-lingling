@@ -14,30 +14,46 @@ const projects = [
   {
     name: '宝宝护理',
     type: 'Baby Care',
-    desc: '围绕新生儿日常起居做细致照护，包含喂养、拍嗝、洗澡、抚触、奶具消毒、衣物清洗和睡眠观察；同时留意黄疸、湿疹、尿布疹等常见情况。',
+    desc: '关注喂养、睡眠、洗澡抚触和日常观察，让新手家庭更从容。',
     tags: ['喂养睡眠', '洗澡抚触', '健康观察'],
-    tab: 'baby'
+    tab: 'baby',
+    detail: [
+      { label: '服务重点', items: ['按需喂养、拍嗝和睡眠观察', '洗澡抚触、奶具消毒和衣物整理', '观察黄疸、湿疹、尿布疹等常见情况'] },
+      { label: '适合家庭', items: ['第一次照顾新生儿', '希望建立稳定照护节奏', '需要有人协助判断宝宝日常状态'] }
+    ]
   },
   {
     name: '宝妈照护',
     type: 'Mother Care',
-    desc: '关注妈妈起居、乳房护理、身体恢复、情绪状态和休息节奏；结合过往美容院按摩经验，帮助缓解肩颈、腰背和哺乳带来的疲劳。',
+    desc: '围绕休息、喂养支持、身体恢复和情绪状态，减少月子期消耗。',
     tags: ['生活照护', '产后恢复', '舒缓按摩'],
-    tab: 'pregnant'
+    tab: 'pregnant',
+    detail: [
+      { label: '服务重点', items: ['协助日常起居、房间整理和休息安排', '指导喂养姿势，关注奶胀、堵奶等不适', '结合按摩经验，温和舒缓肩颈、腰背疲劳'] },
+      { label: '照护方式', items: ['不过度打扰宝妈休息', '发现异常及时提醒家人进一步咨询', '通过沟通减少家庭照护压力'] }
+    ]
   },
   {
     name: '月子餐建议',
     type: 'Meal Plan',
-    desc: '围绕产后恢复安排营养膳食，兼顾清淡、滋养和易消化；可参考既有菜谱搭配蛋奶、鱼虾、肉禽、蔬菜、主食、汤粥和点心。',
+    desc: '按蛋奶、鱼虾、肉禽、蔬菜、主食、汤粥和点心做清淡搭配。',
     tags: ['营养搭配', '清淡易消化', '阶段调理'],
-    tab: 'meals'
+    tab: 'meals',
+    detail: [
+      { label: '搭配原则', items: ['主食、蛋白质、蔬菜和汤水分层搭配', '口味尽量清淡，兼顾宝妈胃口', '根据恢复情况逐步增加食材丰富度'] },
+      { label: '展示内容', items: ['已整理多类月子餐菜谱', '菜品按主食材分类浏览', '每道菜配有简短功效说明'] }
+    ]
   },
   {
     name: '家庭沟通与育儿指导',
     type: 'Family Guide',
-    desc: '和妈妈交流育儿心得，提醒家人一起参与照护；用耐心沟通减少新手家庭的紧张感，让妈妈恢复更安心，家人配合更顺畅。',
+    desc: '用稳定沟通帮助家人参与照护，降低新手家庭的焦虑和混乱。',
     tags: ['育儿交流', '家人配合', '耐心陪伴'],
-    tab: 'baby'
+    tab: 'baby',
+    detail: [
+      { label: '沟通重点', items: ['把宝宝状态和照护重点说清楚', '提醒家人配合宝妈休息和恢复', '遇到分歧时以宝宝和宝妈舒适为先'] },
+      { label: '带来的变化', items: ['减少反复询问和临时慌乱', '让照护安排更有秩序', '帮助家人更放心参与照护'] }
+    ]
   }
 ]
 
@@ -215,6 +231,53 @@ const mealImages = {
   '黑芝麻饭': './assets/meals/黑芝麻饭.jpg'
 }
 
+const mediaCollections = [
+  {
+    key: 'baby',
+    title: '宝宝照护日常',
+    eyebrow: 'Daily Care',
+    desc: '记录真实照护场景，默认收起，点击查看完整照片。',
+    action: '查看日常',
+    cover: babyDailyPhotos[0]?.src,
+    items: babyDailyPhotos.map((item, index) => ({
+      title: `照护日常 ${index + 1}`,
+      image: item.src,
+      desc: '真实照护照片，用于展示陪伴、抱护和日常照料状态。'
+    }))
+  },
+  {
+    key: 'meals',
+    title: '月子餐图片',
+    eyebrow: 'Meal Photos',
+    desc: '展示已配图的菜品，更多菜谱可在月子餐 tab 按分类查看。',
+    action: '查看菜品图',
+    cover: mealImages['椒盐虾'] || Object.values(mealImages)[0],
+    items: Object.entries(mealImages).map(([title, image]) => ({
+      title,
+      image,
+      desc: `${title}，可在月子餐分类中查看对应功效说明。`
+    }))
+  },
+  {
+    key: 'certificates',
+    title: '证书资质',
+    eyebrow: 'Certificates',
+    desc: '保留证书重点信息，点击可查看证书图片和课程方向。',
+    action: '查看证书',
+    cover: certificates[0]?.image,
+    items: certificates
+  },
+  {
+    key: 'reviews',
+    title: '客户评价',
+    eyebrow: 'Reviews',
+    desc: '收纳客户反馈截图，首页只展示摘要，避免页面过长。',
+    action: '查看评价',
+    cover: reviews[0]?.image,
+    items: reviews
+  }
+]
+
 function dish(name, tag, category) {
   return {
     name,
@@ -331,13 +394,12 @@ function renderHomeServices() {
   document.getElementById('homeServices').innerHTML = projects.map((item, index) => `
     <article class="service-card">
       <div class="service-head">
-        <div class="service-index">${String(index + 1).padStart(2, '0')}</div>
         <h3 class="service-title">${escapeHtml(item.name)}</h3>
         <div class="service-type">${escapeHtml(item.type)}</div>
       </div>
       <p class="service-desc">${escapeHtml(item.desc)}</p>
       <div class="tag-row">${item.tags.map(tag => `<span class="project-tag">${escapeHtml(tag)}</span>`).join('')}</div>
-      <button class="more-button" type="button" data-tab="${item.tab}">查看详情</button>
+      <button class="more-button" type="button" data-service="${index}">更多</button>
     </article>
   `).join('')
 }
@@ -367,23 +429,26 @@ function renderBabyDailyPhotos() {
       <h2>照护日常</h2>
     </div>
     <div class="daily-photo-flow">
-      ${babyDailyPhotos.map((item) => `
+      ${babyDailyPhotos.slice(0, 4).map((item) => `
         <figure class="daily-photo-card ${item.tall ? 'tall' : ''}">
           <img src="${item.src}" alt="${escapeHtml(item.alt || '照护日常')}" loading="lazy">
         </figure>
       `).join('')}
     </div>
+    <button class="media-action" type="button" data-media="baby">查看全部日常照片</button>
   `
 }
 
-function renderSimpleList(targetId, items, type) {
-  document.getElementById(targetId).innerHTML = items.map((item, index) => `
-    <article class="simple-card">
+function renderMediaOverview() {
+  document.getElementById('mediaOverview').innerHTML = mediaCollections.map((item, index) => `
+    <article class="media-card">
+      <img src="${item.cover}" alt="${escapeHtml(item.title)}" loading="lazy">
       <div>
-        <h3 class="simple-title">${escapeHtml(item.title)}</h3>
-        <p class="simple-desc">${escapeHtml(item.desc)}</p>
+        <p class="media-eyebrow">${escapeHtml(item.eyebrow)}</p>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.desc)}</p>
+        <button class="media-action" type="button" data-media="${index}">${escapeHtml(item.action)}</button>
       </div>
-      <button class="simple-more" type="button" data-${type}="${index}">${type === 'certificate' ? '查看证书' : '查看评价'}</button>
     </article>
   `).join('')
 }
@@ -443,18 +508,38 @@ function openCare(section) {
   `)
 }
 
-function openImageModal(item, heading) {
+function openService(item) {
   openModal(`
     <div class="modal-content">
-      <h2 id="modalTitle">${escapeHtml(item.title)}</h2>
-      <img class="modal-image" src="${item.image}" alt="${escapeHtml(item.title)}">
+      <h2 id="modalTitle">${escapeHtml(item.name)}</h2>
       <p class="simple-desc">${escapeHtml(item.desc)}</p>
-      ${item.details ? `
+      ${item.detail.map(group => `
         <div class="detail-group">
-          <h3>${heading}</h3>
-          <ul>${item.details.map(detail => `<li>${escapeHtml(detail)}</li>`).join('')}</ul>
+          <h3>${escapeHtml(group.label)}</h3>
+          <ul>${group.items.map(point => `<li>${escapeHtml(point)}</li>`).join('')}</ul>
         </div>
-      ` : ''}
+      `).join('')}
+      <button class="modal-primary" type="button" data-tab="${item.tab}">查看对应页面</button>
+    </div>
+  `)
+}
+
+function openMediaCollection(collection) {
+  openModal(`
+    <div class="modal-content">
+      <h2 id="modalTitle">${escapeHtml(collection.title)}</h2>
+      <p class="simple-desc">${escapeHtml(collection.desc)}</p>
+      <div class="modal-gallery ${collection.key === 'certificates' || collection.key === 'reviews' ? 'is-document' : ''}">
+        ${collection.items.map(item => `
+          <figure class="modal-gallery-item">
+            <img src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy">
+            <figcaption>
+              <strong>${escapeHtml(item.title)}</strong>
+              <span>${escapeHtml(item.desc || '')}</span>
+            </figcaption>
+          </figure>
+        `).join('')}
+      </div>
     </div>
   `)
 }
@@ -517,6 +602,7 @@ function bindEvents() {
     const tabButton = event.target.closest('[data-tab]')
     if (tabButton) {
       switchTab(tabButton.dataset.tab)
+      closeModal()
       return
     }
 
@@ -535,15 +621,19 @@ function bindEvents() {
       return
     }
 
-    const certificateButton = event.target.closest('[data-certificate]')
-    if (certificateButton) {
-      openImageModal(certificates[Number(certificateButton.dataset.certificate)], '证书重点')
+    const serviceButton = event.target.closest('[data-service]')
+    if (serviceButton) {
+      openService(projects[Number(serviceButton.dataset.service)])
       return
     }
 
-    const reviewButton = event.target.closest('[data-review]')
-    if (reviewButton) {
-      openImageModal(reviews[Number(reviewButton.dataset.review)], '评价说明')
+    const mediaButton = event.target.closest('[data-media]')
+    if (mediaButton) {
+      const value = mediaButton.dataset.media
+      const collection = Number.isNaN(Number(value))
+        ? mediaCollections.find(item => item.key === value)
+        : mediaCollections[Number(value)]
+      if (collection) openMediaCollection(collection)
       return
     }
 
@@ -594,11 +684,10 @@ function init() {
   renderInfo('contactPersonalInfo', personalInfo)
   renderInfo('contactWorkInfo', workInfo)
   renderHomeServices()
+  renderMediaOverview()
   renderCareList('babySections', babySections)
   renderBabyDailyPhotos()
   renderCareList('pregnantSections', pregnantSections)
-  renderSimpleList('certificateList', certificates, 'certificate')
-  renderSimpleList('reviewList', reviews, 'review')
   renderMealTabs()
   renderMealContent()
   bindEvents()
